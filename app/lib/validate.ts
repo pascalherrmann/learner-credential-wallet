@@ -17,6 +17,7 @@ export async function verifyPresentation(
   unsignedPresentation = true,
 ): Promise<boolean> {
   try {
+    console.log('Verifying...', presentation)
     const result = await vc.verify({
       presentation,
       presentationPurpose,
@@ -49,6 +50,9 @@ export async function verifyCredential(credential: Credential): Promise<boolean>
       suite,
       documentLoader,
     });
+
+    console.log('Verifing VC:', credential);
+    console.log(JSON.stringify(result, null, 2))
 
     return result.verified;
   } catch (err) {

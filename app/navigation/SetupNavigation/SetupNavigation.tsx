@@ -53,7 +53,7 @@ function StartStep({ navigation }: StartStepProps) {
         accessible
         accessibilityLabel={`${appConfig.displayName} Logo`}
       />
-      <Text 
+      <Text
         style={styles.title}
         accessibilityRole="header"
       >
@@ -82,7 +82,7 @@ function PasswordStep({ navigation }: PasswordStepProps) {
   const [errorText, setErrorText] = useState('');
   const passwordRef = useRef<TextInput>(null);
 
-  const isPasswordValid = password.length >= 10 && password === passwordConfirm;
+  const isPasswordValid = password.length >= 5 && password === passwordConfirm;
 
   useEffect(() => passwordRef.current?.focus(), []);
 
@@ -94,8 +94,8 @@ function PasswordStep({ navigation }: PasswordStepProps) {
 
   function _onInputBlur() {
     if (password && passwordConfirm) {
-      if (password.length < 10)
-        setErrorText('Password must contain at least 10 characters');
+      if (password.length < 5)
+        setErrorText('Password must contain at least 5 characters');
       else if (password !== passwordConfirm)
         setErrorText('Passwords must match');
       else setErrorText('');
@@ -115,7 +115,7 @@ function PasswordStep({ navigation }: PasswordStepProps) {
         <View style={styles.stepDivider} />
         <Text style={styles.stepText}>2</Text>
       </AccessibleView>
-      <Text 
+      <Text
         style={styles.header}
         accessibilityRole="header"
       >

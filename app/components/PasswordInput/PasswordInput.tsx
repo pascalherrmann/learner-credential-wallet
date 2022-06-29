@@ -26,8 +26,8 @@ function PasswordInput({
   const _inputRef = inputRef || useRef<RNTextInput>(null);
 
   return (
-    <AccessibleView 
-      ref={ref} 
+    <AccessibleView
+      ref={ref}
       style={styles.container}
       label={`${label}, Input${value && `, containing ${value.length} characters`}`}
       onPress={() => _inputRef.current?.focus()}
@@ -37,7 +37,7 @@ function PasswordInput({
         style={mixins.input}
         autoCompleteType="off"
         textContentType="newPassword"
-        passwordRules="minlength: 10;"
+        passwordRules="minlength: 5;"
         secureTextEntry
         autoCorrect={false}
         value={value}

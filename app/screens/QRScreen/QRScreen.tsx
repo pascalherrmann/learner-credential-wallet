@@ -72,6 +72,7 @@ export default function QRScreen({ navigation }: QRScreenProps): JSX.Element {
     await credentialsFromQrText(text)
       .then((credentials) => {
         AccessibilityInfo.announceForAccessibility('QR Code Scanned');
+        console.log('credentials', credentials)
         dispatch(stageCredentials(credentials));
         navigation.navigate('ApproveCredentialsScreen');
       })
